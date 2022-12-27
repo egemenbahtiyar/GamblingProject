@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using GamblingProject.Helpers.Extensions
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -6,6 +8,7 @@
     <title>@ViewData["Title"] - GamblingProject</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css"/>
+    @await RenderSectionAsync("Css", false)
 </head>
 <body>
 <header>
@@ -31,6 +34,10 @@
 </header>
 <div class="container">
     <main role="main" class="pb-3">
+        @if (TempData["message"] != null)
+        {
+            <partial name="_resultMessage" model="@(TempData.Get<AlertMessage>("message"))"/>
+        }
         @RenderBody()
     </main>
 </div>
@@ -43,6 +50,6 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-@await RenderSectionAsync("Scripts", required: false)
+@await RenderSectionAsync("Scripts", false)
 </body>
 </html>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using GamblingProject.Models;
 using MongoDB.Driver;
 
@@ -61,12 +62,16 @@ namespace GamblingProject.Services
             _users.ReplaceOne(user => user.Id == id, user);
         }
 
-        public async void ConvertEthToTokens(string id, double eth)
+        public async Task<ResponseDto> ConvertEthToTokens(string id, double eth)
         {
             var user = _users.Find(user => user.Id == id).FirstOrDefault();
+
+            if (user.EthAmount < eth)
+                return new ResponseDto("Not enough ETH","error","failed");
             user.EthAmount -= eth;
             user.Tokens += eth * await GetCryptoValue.GetEthPriceAsync() / 10;
             _users.ReplaceOne(user => user.Id == id, user);
+            return new ResponseDto("ETH converted to tokens","success");
         }
 
         public async void ConvertTokensToEth(string id, double tokens)

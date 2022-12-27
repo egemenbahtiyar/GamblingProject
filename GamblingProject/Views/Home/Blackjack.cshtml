@@ -1,3 +1,66 @@
 ﻿@{
-    Layout = null;
+    Layout = "_LayoutForGames";
+}
+
+@section Css
+{
+    <link href="~/css/blackjack.css" rel="stylesheet" asp-append-version="true"/>
+}
+
+@model GamblingProject.ViewModels.BlackjackViewmodel
+<!doctype html>
+<html>
+<head>
+    <title>Blackjack</title>
+</head>
+<body>
+<input type="hidden" value="@Model.Cash" id="hiddenCash"/>
+<div id="wrapper">
+    <div id="game">
+        <div id="dealer">
+            <div id="dscore">
+                Dealer has: <span></span>
+            </div>
+            <div id="dhand"></div>
+        </div>
+        <div id="player">
+            <div id="pscore">
+                You have: <span></span>
+            </div>
+            <div id="phand"></div>
+        </div>
+        <div id="result"></div>
+    </div>
+    <div id="actions">
+        <button id="deal">Deal!</button>
+        <button id="hit" disabled>Hit</button>
+        <button id="stand" disabled>Stand</button>
+        <button id="double" disabled>Double Down</button>
+        <button id="split" disabled>Split</button>
+        <button id="insurance" disabled>Insurance</button>
+        <strong>Wager:</strong> $<input id="wager" type="text"/>
+        <span id="cash">
+            <strong>Cash: $<span></span></strong>
+        </span>
+    </div>
+    <div id="bank">
+        <strong>Winnings: $<span></span></strong>
+    </div>
+    <div id="alert">
+        <span></span>
+    </div>
+</div>
+<form method="post" asp-action="UpdateAsset">
+    <a class="text-decoration-none" href="/Home/Index">
+        <input type="hidden" asp-for="LastAsset" id="LastAsset"/>
+        <button type="submit" class="btn btn-primary" id="btn-for-update-asset">Leave</button>
+    </a>
+</form>
+
+</body>
+</html>
+
+@section Scripts
+{
+    <script src="~/js/blackjack.js" asp-append-version="true"></script>
 }

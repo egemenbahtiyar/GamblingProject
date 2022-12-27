@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using GamblingProject.Helpers.Extensions;
 using GamblingProject.Models;
 using GamblingProject.Services;
+using GamblingProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -19,19 +21,59 @@ namespace GamblingProject.Controllers
             _userService = userService;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var btcPrice = Math.Floor(await GetCryptoValue.GetBtcPriceAsync());
+            /*var user = new User()
+            {
+                Username = "kasimoztoprak",
+                Password = "kgtuceng",
+                EthAmount = 100
+            };
+            var result = _userService.Create(user);*/
             return View();
         }
 
         public IActionResult Blackjack()
         {
-            return View();
+            var user = _userService.Get("63aa8b7c88048b81af783d53");
+            var model = new BlackjackViewmodel
+            {
+                Cash = Math.Floor(user.Tokens)
+            };
+
+            return View(model);
+        }
+        
+        [HttpPost]
+        public IActionResult UpdateAsset(BlackjackViewmodel model)
+        {
+            var user = _userService.Get("63aa8b7c88048b81af783d53");
+            user.Tokens = model.LastAsset;
+            _userService.Update(user.Id, user);
+            return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Exchange()
+        public async Task<IActionResult> Exchange()
         {
+            var result = await _userService.ConvertEthToTokens("63aa8b7c88048b81af783d53", 100);
+            if (result.Status == "success")
+            {
+                TempData.Put("message", new AlertMessage
+                {
+                    Title = result.Title,
+                    Message = result.Message,
+                    AlertType = "success"
+                });
+            }
+            else
+            {
+                TempData.Put("message", new AlertMessage
+                {
+                    Title = result.Title,
+                    Message = result.Message,
+                    AlertType = "danger"
+                });
+            }
             return View();
         }
 

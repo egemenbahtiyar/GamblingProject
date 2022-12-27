@@ -53,3 +53,5 @@ C:\Users\ebaht\RiderProjects\GamblingProject\GamblingProject\bin\Debug\net5.0\ru
 C:\Users\ebaht\RiderProjects\GamblingProject\GamblingProject\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\ebaht\RiderProjects\GamblingProject\GamblingProject\obj\Debug\net5.0\Razor\Views\Home\Blackjack.cshtml.g.cs
 C:\Users\ebaht\RiderProjects\GamblingProject\GamblingProject\obj\Debug\net5.0\Razor\Views\Home\Exchange.cshtml.g.cs
+C:\Users\ebaht\RiderProjects\GamblingProject\GamblingProject\obj\Debug\net5.0\Razor\Views\Shared\_LayoutForGames.cshtml.g.cs
+C:\Users\ebaht\RiderProjects\GamblingProject\GamblingProject\obj\Debug\net5.0\Razor\Views\Shared\_resultMessage.cshtml.g.cs
