@@ -1,24 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
+using GamblingProject.Models;
+using GamblingProject.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using GamblingProject.Models;
 
 namespace GamblingProject.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly UserService _userService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, UserService userService)
         {
             _logger = logger;
+            _userService = userService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
+        {
+            var btcPrice = Math.Floor(await GetCryptoValue.GetBtcPriceAsync());
+            return View();
+        }
+
+        public IActionResult Blackjack()
+        {
+            return View();
+        }
+
+        public IActionResult Exchange()
         {
             return View();
         }
