@@ -36,8 +36,6 @@
         <button id="hit" disabled>Hit</button>
         <button id="stand" disabled>Stand</button>
         <button id="double" disabled>Double Down</button>
-        <button id="split" disabled>Split</button>
-        <button id="insurance" disabled>Insurance</button>
         <strong>Wager:</strong> $<input id="wager" type="text"/>
         <span id="cash">
             <strong>Cash: $<span></span></strong>
@@ -50,7 +48,7 @@
         <span></span>
     </div>
 </div>
-<form method="post" asp-action="UpdateAsset">
+<form method="post" asp-action="UpdateBlackjackAsset">
     <a class="text-decoration-none" href="/Home/Index">
         <input type="hidden" asp-for="LastAsset" id="LastAsset"/>
         <button type="submit" class="btn btn-primary" id="btn-for-update-asset">Leave</button>

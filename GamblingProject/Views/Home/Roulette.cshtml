@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "_LayoutForGames";
+}
+@model GamblingProject.ViewModels.RouletteViewModel
+@section Css
+{
+    <link href="~/css/roulette.css" rel="stylesheet" asp-append-version="true"/>
+}
+<input type="hidden" value="@Model.Cash" id="hiddenCash"/>
+<div>
+  <div id="history"></div>
+  <br><br>
+  <div id="roulette" class="roulette"><div class="arrow"></div></div>
+  <div class="progress" id=time></div>
+  
+  <div id="result"></div>
+  <div id="money"></div>
+  <input type="number" placeholder="Bet size" id=betInput><br>
+  <div class="bet">
+    <button class="betBtn redBtn" onclick='bet("r",this);'>Red</button>
+  </div>
+  <div class="bet">
+    <button class="betBtn greenBtn" onclick='bet("g",this);'>Green</button>
+  </div>
+  <div class="bet">
+    <button class="betBtn blackBtn" onclick='bet("b",this);'>Black</button>
+  </div>
+</div>
+<div id="leave">
+    <form method="post" asp-action="UpdateRouletteAsset">
+        <a class="text-decoration-none" href="/Home/Index">
+            <input type="hidden" asp-for="LastAsset" id="LastAsset"/>
+            <button type="submit" class="btn btn-primary" id="btn-for-roulette-update-asset">Leave</button>
+        </a>
+    </form>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/roulette.js" asp-append-version="true"></script>
+}

@@ -23,13 +23,6 @@ namespace GamblingProject.Controllers
 
         public IActionResult Index()
         {
-            /*var user = new User()
-            {
-                Username = "kasimoztoprak",
-                Password = "kgtuceng",
-                EthAmount = 100
-            };
-            var result = _userService.Create(user);*/
             return View();
         }
 
@@ -43,37 +36,71 @@ namespace GamblingProject.Controllers
 
             return View(model);
         }
+
+        public IActionResult Roulette()
+        {
+            var user = _userService.Get("63aa8b7c88048b81af783d53");
+            var model = new RouletteViewModel()
+            {
+                Cash = Math.Floor(user.Tokens)
+            };
+            return View(model);
+        }
         
         [HttpPost]
-        public IActionResult UpdateAsset(BlackjackViewmodel model)
+        public IActionResult UpdateRouletteAsset(RouletteViewModel model)
         {
             var user = _userService.Get("63aa8b7c88048b81af783d53");
             user.Tokens = model.LastAsset;
             _userService.Update(user.Id, user);
             return RedirectToAction("Index", "Home");
         }
+        [Consumes("application/json")]
+        [HttpPost]
+        public JsonResult UpdateRouletteWithRefresh([FromBody]RouletteViewModel model)
+        {
+            var user = _userService.Get("63aa8b7c88048b81af783d53");
+            user.Tokens = model.LastAsset;
+            _userService.Update(user.Id, user);
+            return Json(user);
+        }
+        
+        [HttpPost]
+        public IActionResult UpdateBlackjackAsset(BlackjackViewmodel model)
+        {
+            var user = _userService.Get("63aa8b7c88048b81af783d53");
+            user.Tokens = model.LastAsset;
+            _userService.Update(user.Id, user);
+            return RedirectToAction("Index", "Home");
+        }
+        
+        [Consumes("application/json")]
+        [HttpPost]
+        public JsonResult UpdateBlackjackWithRefresh([FromBody]BlackjackViewmodel model)
+        {
+            var user = _userService.Get("63aa8b7c88048b81af783d53");
+            user.Tokens = model.LastAsset;
+            _userService.Update(user.Id, user);
+            return Json(user);
+        }
 
         public async Task<IActionResult> Exchange()
         {
             var result = await _userService.ConvertEthToTokens("63aa8b7c88048b81af783d53", 100);
             if (result.Status == "success")
-            {
                 TempData.Put("message", new AlertMessage
                 {
                     Title = result.Title,
                     Message = result.Message,
                     AlertType = "success"
                 });
-            }
             else
-            {
                 TempData.Put("message", new AlertMessage
                 {
                     Title = result.Title,
                     Message = result.Message,
                     AlertType = "danger"
                 });
-            }
             return View();
         }
 

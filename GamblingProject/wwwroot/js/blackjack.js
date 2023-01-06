@@ -17,9 +17,16 @@ var game = new Game(),
 /*****************************************************************/
 
 function Player() {
+    var money = 0;
+    if (localStorage.getItem("RouletteKey") == null) {
+        money = parseInt(document.getElementById("hiddenCash").value);
+    }else {
+        var someVarName = localStorage.getItem("RouletteKey");
+        money = parseInt(someVarName);
+    }
     var hand = [],
         wager = 0,
-        cash = parseInt(document.getElementById("hiddenCash").value),
+        cash = money,
         bank = 0,
         ele = '',
         score = '';
@@ -355,6 +362,8 @@ Player.prototype.updateBoard = function () {
 
     $(score).html(this.getScore());
     $('#cash span').html(player.getCash());
+    var someVarName = player.getCash().toString();
+    localStorage.setItem("RouletteKey", someVarName);
     player.getBank();
 
     return false;
@@ -531,7 +540,6 @@ function getWinner() {
             $('#result').html('Bust');
         }
     }
-
     dealer.flipCards();
     dealer.updateBoard();
 
@@ -602,3 +610,26 @@ var btn = document.getElementById("btn-for-update-asset");
 btn.addEventListener("click", function() {
   document.getElementById("LastAsset").value = player.getCash();
 });
+if (window.location.href == "https://localhost:5001/home/blackjack"){
+    let blackjackViewModel = {
+        Cash: 20.0,
+        LastAsset: parseInt(localStorage.getItem("RouletteKey"))
+    };
+    var data = JSON.stringify(blackjackViewModel);
+    console.log(data)
+    $.ajax({
+        type: 'POST',
+        url: '/Home/UpdateBlackjackWithRefresh',
+        contentType: 'application/json', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+        data: data,
+        success: function (result) {
+            alert('Welcome To The BLACKJACK in 42XBET ');
+            console.log(result);
+        },
+        error: function () {
+            alert('Failed to receive the Data');
+            console.log('Failed ');
+        }
+    })
+    console.log("window loaded");
+}

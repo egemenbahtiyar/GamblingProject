@@ -6,20 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e42b164-c797-47c2-bf3d-762abff682fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GamblingProject/Helpers/Extensions/TempDataExtension.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamblingProject/Models/AlertMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamblingProject/Models/ResponseDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamblingProject/ViewModels/BlackjackViewmodel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamblingProject/Views/Shared/_LayoutForGames.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamblingProject/Views/Shared/_resultMessage.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/css/blackjack.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/js/blackjack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GamblingProject/ViewModels/RouletteViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GamblingProject/Views/Home/Roulette.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/css/roulette.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/js/roulette.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GamblingProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GamblingProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/GamblingProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/GamblingProject.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Services/UserService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/Views/Home/Blackjack.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Views/Home/Blackjack.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/Views/Shared/_LayoutForGames.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Views/Shared/_LayoutForGames.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.dll" afterDir="false" />
@@ -32,9 +26,8 @@
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/ref/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/ref/GamblingProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/wwwroot/js/blackjack.js" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/js/blackjack.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,15 +37,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/2f4638b03cfb977fd2293a3b9d6e5bd4e8ea2a36dfc2e1afabeb47667221c/ObjectMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/5b6f21dd3037c6cc87243756ae223f26fab716d0c9f2d5876f776ca7d9c64/MongoCollectionBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/697050deb22a2642d1f1311dc2abbff272e4d5575d8f69d97af9f902d985b27/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/Razor/Views/Home/Exchange.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/Razor/Views/Shared/_LayoutForGames.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -120,7 +115,15 @@
       <workItem from="1672095653160" duration="159000" />
       <workItem from="1672095843154" duration="6302000" />
       <workItem from="1672104993083" duration="2285000" />
-      <workItem from="1672120222422" duration="8265000" />
+      <workItem from="1672120222422" duration="8984000" />
+      <workItem from="1672135441136" duration="2351000" />
+      <workItem from="1672153553141" duration="1460000" />
+      <workItem from="1672308353067" duration="1316000" />
+      <workItem from="1672423982958" duration="935000" />
+      <workItem from="1672704591648" duration="2411000" />
+      <workItem from="1672757141112" duration="11912000" />
+      <workItem from="1672789804067" duration="4389000" />
+      <workItem from="1673012257065" duration="633000" />
     </task>
     <task id="LOCAL-00001" summary="Mongo bağlandı eth ve btc price çekme yapıldı">
       <created>1672105161329</created>
@@ -129,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672105161329</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Blackjack oyunu eklendi mongoyla bağlandı">
+      <created>1672130342680</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672130342680</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,7 +150,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Mongo bağlandı eth ve btc price çekme yapıldı" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mongo bağlandı eth ve btc price çekme yapıldı" />
+    <MESSAGE value="Blackjack oyunu eklendi mongoyla bağlandı" />
+    <option name="LAST_COMMIT_MESSAGE" value="Blackjack oyunu eklendi mongoyla bağlandı" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

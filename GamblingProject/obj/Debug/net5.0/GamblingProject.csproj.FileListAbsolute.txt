@@ -55,3 +55,4 @@ C:\Users\ebaht\RiderProjects\GamblingProject\GamblingProject\obj\Debug\net5.0\Ra
 C:\Users\ebaht\RiderProjects\GamblingProject\GamblingProject\obj\Debug\net5.0\Razor\Views\Home\Exchange.cshtml.g.cs
 C:\Users\ebaht\RiderProjects\GamblingProject\GamblingProject\obj\Debug\net5.0\Razor\Views\Shared\_LayoutForGames.cshtml.g.cs
 C:\Users\ebaht\RiderProjects\GamblingProject\GamblingProject\obj\Debug\net5.0\Razor\Views\Shared\_resultMessage.cshtml.g.cs
+C:\Users\ebaht\RiderProjects\GamblingProject\GamblingProject\obj\Debug\net5.0\Razor\Views\Home\Roulette.cshtml.g.cs
