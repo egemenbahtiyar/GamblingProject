@@ -6,28 +6,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e42b164-c797-47c2-bf3d-762abff682fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GamblingProject/ViewModels/RouletteViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamblingProject/Views/Home/Roulette.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/css/roulette.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/js/roulette.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GamblingProject/Models/ApplicationRole.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GamblingProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GamblingProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/Views/Home/Blackjack.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Views/Home/Blackjack.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/Views/Shared/_LayoutForGames.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Views/Shared/_LayoutForGames.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/GamblingProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/GamblingProject.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Startup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/ref/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/ref/GamblingProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.RazorCoreGenerate.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/ref/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/ref/GamblingProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/wwwroot/js/blackjack.js" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/js/blackjack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/GamblingProject.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/GamblingProject.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +48,12 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/1b6d9aef891d740fada4474a66a67cc9d76348d742c9818aa2f7592a2e55aa7/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/2f4638b03cfb977fd2293a3b9d6e5bd4e8ea2a36dfc2e1afabeb47667221c/ObjectMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/51876386fdbc9f7d023118d9aa41d5f65b65fce13745eed5cab5ae88f5cd3/Ensure.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/5b6f21dd3037c6cc87243756ae223f26fab716d0c9f2d5876f776ca7d9c64/MongoCollectionBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/697050deb22a2642d1f1311dc2abbff272e4d5575d8f69d97af9f902d985b27/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/c372a0524b128fc11cc1b6c7450e6bb6c49369f8c6ec30266754353823a16c/PredicateTranslator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/Razor/Views/Home/Exchange.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/Razor/Views/Shared/_LayoutForGames.cshtml.g.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -123,7 +131,10 @@
       <workItem from="1672704591648" duration="2411000" />
       <workItem from="1672757141112" duration="11912000" />
       <workItem from="1672789804067" duration="4389000" />
-      <workItem from="1673012257065" duration="633000" />
+      <workItem from="1673012257065" duration="661000" />
+      <workItem from="1673362798480" duration="5427000" />
+      <workItem from="1673612517653" duration="6284000" />
+      <workItem from="1673622701463" duration="422000" />
     </task>
     <task id="LOCAL-00001" summary="Mongo bağlandı eth ve btc price çekme yapıldı">
       <created>1672105161329</created>
@@ -139,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672130342680</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="sayfa refresh durumunda varlıklar korundu">
+      <created>1673012915230</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1673012915230</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,11 +165,23 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Mongo bağlandı eth ve btc price çekme yapıldı" />
     <MESSAGE value="Blackjack oyunu eklendi mongoyla bağlandı" />
-    <option name="LAST_COMMIT_MESSAGE" value="Blackjack oyunu eklendi mongoyla bağlandı" />
+    <MESSAGE value="sayfa refresh durumunda varlıklar korundu" />
+    <option name="LAST_COMMIT_MESSAGE" value="sayfa refresh durumunda varlıklar korundu" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

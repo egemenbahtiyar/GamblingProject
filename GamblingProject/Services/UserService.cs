@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using GamblingProject.Models;
 using MongoDB.Driver;
@@ -9,10 +10,9 @@ namespace GamblingProject.Services
     {
         private readonly IMongoCollection<User> _users;
 
-        public UserService(IGamblingDatabaseSettings settings)
+        public UserService(IMongoClient client)
         {
-            var client = new MongoClient(settings.ConnectionString);
-            var database = client.GetDatabase(settings.DatabaseName);
+            var database = client.GetDatabase("GamblingDB");
 
             _users = database.GetCollection<User>("Users");
         }
@@ -24,7 +24,7 @@ namespace GamblingProject.Services
 
         public User Get(string id)
         {
-            return _users.Find(user => user.Id == id).FirstOrDefault();
+            return _users.Find(user => user.Id.ToString() == id).FirstOrDefault();
         }
 
         public User Create(User user)
@@ -33,7 +33,7 @@ namespace GamblingProject.Services
             return user;
         }
 
-        public void Update(string id, User userIn)
+        public void Update(Guid id, User userIn)
         {
             _users.ReplaceOne(user => user.Id == id, userIn);
         }
@@ -45,41 +45,41 @@ namespace GamblingProject.Services
 
         public void Remove(string id)
         {
-            _users.DeleteOne(user => user.Id == id);
+            _users.DeleteOne(user => user.Id.ToString() == id);
         }
 
         public void DepositEth(string id, double eth)
         {
-            var user = _users.Find(user => user.Id == id).FirstOrDefault();
+            var user = _users.Find(user => user.Id.ToString() == id).FirstOrDefault();
             user.EthAmount += eth;
-            _users.ReplaceOne(user => user.Id == id, user);
+            _users.ReplaceOne(user => user.Id.ToString() == id, user);
         }
 
         public void WithdrawEth(string id, double eth)
         {
-            var user = _users.Find(user => user.Id == id).FirstOrDefault();
+            var user = _users.Find(user => user.Id.ToString() == id).FirstOrDefault();
             user.EthAmount -= eth;
-            _users.ReplaceOne(user => user.Id == id, user);
+            _users.ReplaceOne(user => user.Id.ToString() == id, user);
         }
 
         public async Task<ResponseDto> ConvertEthToTokens(string id, double eth)
         {
-            var user = _users.Find(user => user.Id == id).FirstOrDefault();
+            var user = _users.Find(user => user.Id.ToString() == id).FirstOrDefault();
 
             if (user.EthAmount < eth)
-                return new ResponseDto("Not enough ETH","error","failed");
+                return new ResponseDto("Not enough ETH", "error", "failed");
             user.EthAmount -= eth;
-            user.Tokens += eth * await GetCryptoValue.GetEthPriceAsync() / 10;
-            _users.ReplaceOne(user => user.Id == id, user);
-            return new ResponseDto("ETH converted to tokens","success");
+            user.AssetTokens += eth * await GetCryptoValue.GetEthPriceAsync() / 10;
+            _users.ReplaceOne(user => user.Id.ToString() == id, user);
+            return new ResponseDto("ETH converted to tokens", "success");
         }
 
         public async void ConvertTokensToEth(string id, double tokens)
         {
-            var user = _users.Find(user => user.Id == id).FirstOrDefault();
-            user.Tokens -= tokens;
+            var user = _users.Find(user => user.Id.ToString()== id).FirstOrDefault();
+            user.AssetTokens -= tokens;
             user.EthAmount += tokens * 10 / await GetCryptoValue.GetEthPriceAsync();
-            _users.ReplaceOne(user => user.Id == id, user);
+            _users.ReplaceOne(user => user.Id.ToString() == id, user);
         }
     }
 }

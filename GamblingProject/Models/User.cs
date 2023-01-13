@@ -1,23 +1,18 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using System;
+using AspNetCore.Identity.MongoDbCore.Models;
+using MongoDbGenericRepository.Attributes;
 
 namespace GamblingProject.Models
 {
-    public class User
+    [CollectionName("Users")]
+    public class User : MongoIdentityUser<Guid>
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
-
-        public string Username { get; set; }
-
-        public string Password { get; set; }
-        public double Tokens { get; set; }
+        public double AssetTokens { get; set; }
         public double EthAmount { get; set; }
 
         public double TotalAssets()
         {
-            return Tokens * 10;
+            return AssetTokens * 10;
         }
     }
 }

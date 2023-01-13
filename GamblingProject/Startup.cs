@@ -1,11 +1,14 @@
+using System;
 using GamblingProject.Models;
 using GamblingProject.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 namespace GamblingProject
 {
@@ -21,16 +24,52 @@ namespace GamblingProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // requires using Microsoft.Extensions.Options
-            services.Configure<GamblingDatabaseSettings>(
-                Configuration.GetSection(nameof(GamblingDatabaseSettings)));
-
-            services.AddSingleton<IGamblingDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<GamblingDatabaseSettings>>().Value);
-
             services.AddControllersWithViews();
             services.AddHttpContextAccessor();
             services.AddSingleton<UserService>();
+            var mongoDbSettings = Configuration.GetSection(nameof(GamblingDatabaseSettings))
+                .Get<GamblingDatabaseSettings>();
+            services.AddSingleton<IMongoClient, MongoClient>(sp => new MongoClient(mongoDbSettings.ConnectionString));
+            services.AddIdentity<User, ApplicationRole>()
+                .AddMongoDbStores<User, ApplicationRole, Guid>
+                (
+                    mongoDbSettings.ConnectionString, mongoDbSettings.DatabaseName
+                );
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings.
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 0;
+
+                // Lockout settings.
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // User settings.
+                options.User.AllowedUserNameCharacters =
+                    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = true;
+                options.SignIn.RequireConfirmedEmail = false;
+            });
+            services.ConfigureApplicationCookie(options =>
+            {
+                // Cookie settings
+                options.Cookie.Name = ".42XBet.Security.Cookie";
+                options.Cookie.HttpOnly = true;
+                options.Cookie.SameSite = SameSiteMode.Strict;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+
+                options.LoginPath = "/Account/Login";
+                options.LogoutPath = "/Account/Logout";
+                options.AccessDeniedPath = "/Account/AccessDenied";
+                options.SlidingExpiration = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(90);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +91,7 @@ namespace GamblingProject
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
