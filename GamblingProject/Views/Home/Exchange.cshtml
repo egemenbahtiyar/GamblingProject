@@ -27,15 +27,18 @@
         </ul>
     </div>
     <div class="columnB">
-        <div class="exchange-box">
-            <div class="exchange-box-item">
-                <h2 style="margin-top: 10px">You Pay 6,820</h2>
+        <form asp-action="ConvertEthTo42xToken" method="post">
+            <div class="exchange-box">
+                <div class="exchange-box-item">
+                    <h2 style="margin-top: 10px">You Have 0.2 ETH</h2>
+                </div>
+                <button type="submit"><img style="width: 30px; height: 30px; margin: 10px;" src="~/images/exhange.png"/></button>
+                <div class="exchange-box-item">
+                    <h2 style="margin-top: 0px">You Get 3.9614031 XBetToken</h2>
+                </div>
             </div>
-            <img style="width: 40px; height: 40px" src="~/images/exhange.png"/>
-            <div class="exchange-box-item">
-                <h2 style="margin-top: 0px">You Get 3.9614031</h2>
-            </div>
-        </div>
+        </form>
+
     </div>
     <div class="columnC">
         <h2>My Profile</h2>

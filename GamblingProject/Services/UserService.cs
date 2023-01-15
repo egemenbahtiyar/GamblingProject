@@ -47,19 +47,14 @@ namespace GamblingProject.Services
         {
             _users.DeleteOne(user => user.Id.ToString() == id);
         }
-
-        public void DepositEth(string id, double eth)
+        public bool CheckIfUserExists(string wallet)
         {
-            var user = _users.Find(user => user.Id.ToString() == id).FirstOrDefault();
-            user.EthAmount += eth;
-            _users.ReplaceOne(user => user.Id.ToString() == id, user);
-        }
-
-        public void WithdrawEth(string id, double eth)
-        {
-            var user = _users.Find(user => user.Id.ToString() == id).FirstOrDefault();
-            user.EthAmount -= eth;
-            _users.ReplaceOne(user => user.Id.ToString() == id, user);
+            var user = _users.Find(user => user.Wallet == wallet).FirstOrDefault();
+            if (user == null)
+            {
+                return false;
+            }
+            return true;
         }
 
         public async Task<ResponseDto> ConvertEthToTokens(string id, double eth)

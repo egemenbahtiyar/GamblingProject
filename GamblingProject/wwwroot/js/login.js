@@ -73,10 +73,24 @@ const loginWithEth = async () => {
             // 5. Request signature message from serverside
             const msgRequestUrl = `${myServerUrl}/Authentication/RequestMessage/${selectedAccount}/0/${chainId}`;
             const msg = await xhr("POST", msgRequestUrl);
-
-
+            let createOrLoginModel = {
+                WalletAddress: selectedAccount,
+                EthValue: balance,
+            };
+            let data = JSON.stringify(createOrLoginModel);
+            $.ajax({
+                type: 'POST',
+                url: '/Home/CreateOrLogin',
+                contentType: 'application/json', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+                data: data,
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function () {
+                    console.log('Failed ');
+                }
+            })
             window.location.replace(`${myServerUrl}/Home/Index`);
-
 
         } catch (error) {
             alert(error);

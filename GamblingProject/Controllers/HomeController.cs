@@ -15,12 +15,14 @@ namespace GamblingProject.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<User> _userManager;
         private readonly UserService _userService;
+        private readonly SignInManager<User> _signInManager;
 
-        public HomeController(ILogger<HomeController> logger, UserService userService, UserManager<User> userManager)
+        public HomeController(ILogger<HomeController> logger, UserService userService, UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _logger = logger;
             _userService = userService;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         public IActionResult Index(HomeIndexViewModel model)
@@ -30,7 +32,44 @@ namespace GamblingProject.Controllers
 
         public IActionResult Exchange()
         {
+            //User storage'a göre alıncak
+            var user = new User();
+            
+            
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ConvertEthTo42xToken(string eth = "0.2")
+        {
+            //User storage'a göre alıncak
+            var currentEthValue = Math.Round(await GetCryptoValue.GetEthPriceAsync(),2);
+            var ourToken = Math.Round(currentEthValue * double.Parse(eth, System.Globalization.CultureInfo.InvariantCulture),2);
+
+
+            return RedirectToAction("Exchange", "Home");
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateOrLogin([FromBody] CreateOrLoginModel model)
+        {
+            //check user has wallet
+            var haveUser = _userService.CheckIfUserExists(model.WalletAddress);
+            //create new user
+            if (!haveUser)
+            {
+                var user = new User()
+                {
+                    Wallet = model.WalletAddress,
+                    EthAmount = Math.Round(double.Parse(model.EthValue, System.Globalization.CultureInfo.InvariantCulture),2),
+                    UserName = model.WalletAddress,
+                    Email = "42xbetuser@gmail.com"
+                };
+                var result = await _userManager.CreateAsync(user, model.WalletAddress);
+                var result2= await _signInManager.PasswordSignInAsync(user, model.WalletAddress, true, false);
+                return RedirectToAction("Index", "Home");
+            }
+            var existedUser = await _userManager.FindByNameAsync(model.WalletAddress);
+            await _signInManager.PasswordSignInAsync(existedUser, model.WalletAddress, true, false);
+            return RedirectToAction("Index", "Home");
         }
 
         public async Task<IActionResult> Assets()
