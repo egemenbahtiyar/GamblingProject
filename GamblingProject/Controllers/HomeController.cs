@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using GamblingProject.Helpers.Extensions;
 using GamblingProject.Models;
 using GamblingProject.Services;
 using GamblingProject.ViewModels;
@@ -25,27 +26,48 @@ namespace GamblingProject.Controllers
             _signInManager = signInManager;
         }
 
-        public IActionResult Index(HomeIndexViewModel model)
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+            var model = new HomeIndexViewModel();
+            if (currentUser is null)
+            {
+                model.WalletAddress = "Please login to see your wallet address";
+            }
+            else
+            {
+                model.WalletAddress = currentUser.Wallet;
+            }
+            
+            return View(model);
         }
 
-        public IActionResult Exchange()
+        public async Task<IActionResult> Exchange()
         {
-            //User storage'a göre alıncak
-            var user = new User();
-            
-            
-            return View();
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+            var model = new ExchangeViewModel();
+            model.EthAmount = currentUser.EthAmount;
+            model.RealEthValue = Math.Round(await GetCryptoValue.GetEthPriceAsync(),2);
+            model.WalletAddress = currentUser.Wallet;
+            model.TotalValue = model.EthAmount * model.RealEthValue;
+
+            return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> ConvertEthTo42xToken(string eth = "0.2")
+        public async Task<IActionResult> ConvertEthTo42xToken()
         {
-            //User storage'a göre alıncak
-            var currentEthValue = Math.Round(await GetCryptoValue.GetEthPriceAsync(),2);
-            var ourToken = Math.Round(currentEthValue * double.Parse(eth, System.Globalization.CultureInfo.InvariantCulture),2);
-
-
+            
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+            var realEthValue = Math.Round(await GetCryptoValue.GetEthPriceAsync(),2);
+            var ethAmount = currentUser.EthAmount;
+            _userService.Update(currentUser.Id,0,ethAmount * realEthValue);
+            TempData.Put("message", new AlertMessage
+            {
+                Title = "İşlem başarılı.",
+                Message =
+                    "Tebrikler Başarıyla dönüştürme yaptınız.",
+                AlertType = "success"
+            });
             return RedirectToAction("Exchange", "Home");
         }
         [HttpPost]
@@ -68,20 +90,22 @@ namespace GamblingProject.Controllers
                 return RedirectToAction("Index", "Home");
             }
             var existedUser = await _userManager.FindByNameAsync(model.WalletAddress);
-            await _signInManager.PasswordSignInAsync(existedUser, model.WalletAddress, true, false);
+            var result3 = await _signInManager.PasswordSignInAsync(existedUser, model.WalletAddress, true, false);
             return RedirectToAction("Index", "Home");
         }
 
         public async Task<IActionResult> Assets()
         {
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
             var ethPriceAsync = await GetCryptoValue.GetEthPriceAsync();
             var btcPriceAsync = await GetCryptoValue.GetBtcPriceAsync();
             var model = new AssetViewModel()
             {
-                My42Asset = "23",
-                MyEthAsset = "123",
+                My42Asset = Math.Round(currentUser.AssetTokens,2),
+                MyEthAsset = currentUser.EthAmount,
                 EthPrice = ethPriceAsync.ToString(),
-                BtcPrice = btcPriceAsync.ToString()
+                BtcPrice = btcPriceAsync.ToString(),
+                WalletAddress = currentUser.Wallet
             };
             return View(model);
         }
@@ -93,10 +117,10 @@ namespace GamblingProject.Controllers
 
         public async Task<IActionResult> Blackjack()
         {
-            var user = await _userManager.FindByIdAsync("02aee5d7-4695-4eed-84a9-66c08fafba5e");
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
             var model = new BlackjackViewmodel
             {
-                Cash = Math.Floor(user.AssetTokens)
+                Cash = Math.Floor(currentUser.AssetTokens)
             };
 
             return View(model);
@@ -104,9 +128,10 @@ namespace GamblingProject.Controllers
 
         public async Task<IActionResult> Roulette()
         {
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
             var model = new RouletteViewModel
             {
-                Cash = 2000
+                Cash = Math.Floor(currentUser.AssetTokens)
             };
             return View(model);
         }

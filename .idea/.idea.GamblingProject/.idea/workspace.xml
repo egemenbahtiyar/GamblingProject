@@ -6,14 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e42b164-c797-47c2-bf3d-762abff682fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GamblingProject/ViewModels/CreateOrLoginModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamblingProject/ViewModels/ExchangeViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GamblingProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GamblingProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Models/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/ViewModels/AssetViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/ViewModels/AssetViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/ViewModels/ExchangeViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/ViewModels/ExchangeViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/Views/Home/Assets.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Views/Home/Assets.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/Views/Home/Exchange.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Views/Home/Exchange.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Views/Home/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.dll" afterDir="false" />
@@ -21,12 +21,13 @@
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/ref/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/ref/GamblingProject.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/ref/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/ref/GamblingProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/wwwroot/js/blackjack.js" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/js/blackjack.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/wwwroot/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GamblingProject/wwwroot/js/roulette.js" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/js/roulette.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +143,7 @@
       <workItem from="1673694471283" duration="2052000" />
       <workItem from="1673696614292" duration="10087000" />
       <workItem from="1673732543845" duration="9825000" />
-      <workItem from="1673788772292" duration="5103000" />
+      <workItem from="1673788772292" duration="13317000" />
     </task>
     <task id="LOCAL-00001" summary="Mongo bağlandı eth ve btc price çekme yapıldı">
       <created>1672105161329</created>
@@ -172,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673742147729</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ajax login eklendi">
+      <created>1673794911746</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1673794911746</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,7 +205,8 @@
     <MESSAGE value="Blackjack oyunu eklendi mongoyla bağlandı" />
     <MESSAGE value="sayfa refresh durumunda varlıklar korundu" />
     <MESSAGE value="Frontend eklendi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Frontend eklendi" />
+    <MESSAGE value="ajax login eklendi" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajax login eklendi" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

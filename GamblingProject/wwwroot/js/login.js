@@ -78,6 +78,7 @@ const loginWithEth = async () => {
                 EthValue: balance,
             };
             let data = JSON.stringify(createOrLoginModel);
+            console.log("takılmadı1");
             $.ajax({
                 type: 'POST',
                 url: '/Home/CreateOrLogin',
@@ -90,7 +91,7 @@ const loginWithEth = async () => {
                     console.log('Failed ');
                 }
             })
-            window.location.replace(`${myServerUrl}/Home/Index`);
+            console.log("takılmadı2");
 
         } catch (error) {
             alert(error);

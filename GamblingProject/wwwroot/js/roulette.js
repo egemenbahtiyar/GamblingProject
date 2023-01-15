@@ -162,6 +162,7 @@ function checkBet(result) {
     document.getElementById("LastAsset").value = money;
     var someVarName = money.toString();
     localStorage.setItem("someVarKey", someVarName);
+    localStorage.setItem("RouletteKey", someVarName);
 
     $(".betText").slideDown(1000, function () {
         $(this).remove();

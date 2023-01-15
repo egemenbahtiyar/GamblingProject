@@ -364,6 +364,7 @@ Player.prototype.updateBoard = function () {
     $('#cash span').html(player.getCash());
     var someVarName = player.getCash().toString();
     localStorage.setItem("RouletteKey", someVarName);
+    localStorage.setItem("someVarKey", someVarName);
     player.getBank();
 
     return false;

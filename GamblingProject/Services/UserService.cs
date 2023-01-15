@@ -37,16 +37,12 @@ namespace GamblingProject.Services
         {
             _users.ReplaceOne(user => user.Id == id, userIn);
         }
-
-        public void Remove(User userIn)
+        // update user with ethAmount and tokenAmount parameters
+        public void Update(Guid id, double ethAmount, double tokenAmount)
         {
-            _users.DeleteOne(user => user.Id == userIn.Id);
+            _users.UpdateOne(user => user.Id == id, Builders<User>.Update.Set("EthAmount", ethAmount).Set("AssetTokens", tokenAmount));
         }
-
-        public void Remove(string id)
-        {
-            _users.DeleteOne(user => user.Id.ToString() == id);
-        }
+        
         public bool CheckIfUserExists(string wallet)
         {
             var user = _users.Find(user => user.Wallet == wallet).FirstOrDefault();

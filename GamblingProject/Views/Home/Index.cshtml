@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+@model GamblingProject.ViewModels.HomeIndexViewModel
 <div class="header">
     <h2 style="font-size: 200%">HOME</h2>
 </div>
@@ -47,7 +47,7 @@
             style="height: 50px; width: 50px; display: block; margin: auto"
             src="~/images/metamask.svg"/>
         <h3 class="text-bold">Wallet address:</h3>
-        <h4 style="text-align: center;word-wrap: break-word;">0xDjdjsljdalkjgadglkjdafşalkdgşalakşlgdkaşlgagda</h4>
+        <h4 style="text-align: center;word-wrap: break-word;">@Model.WalletAddress</h4>
     </div>
 </div>
 

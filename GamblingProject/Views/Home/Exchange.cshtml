@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "_Layout";
 }
+@model GamblingProject.ViewModels.ExchangeViewModel
 <div class="header">
     <h2 style="font-size: 200%">EXCHANGE</h2>
 </div>
@@ -30,11 +31,11 @@
         <form asp-action="ConvertEthTo42xToken" method="post">
             <div class="exchange-box">
                 <div class="exchange-box-item">
-                    <h2 style="margin-top: 10px">You Have 0.2 ETH</h2>
+                    <h2 style="margin-top: 10px">You Have @Model.EthAmount ETH</h2>
                 </div>
                 <button type="submit"><img style="width: 30px; height: 30px; margin: 10px;" src="~/images/exhange.png"/></button>
                 <div class="exchange-box-item">
-                    <h2 style="margin-top: 0px">You Get 3.9614031 XBetToken</h2>
+                    <h2 style="margin-top: 0px" id="xbetToken"></h2>
                 </div>
             </div>
         </form>
@@ -46,6 +47,11 @@
             style="height: 50px; width: 50px; display: block; margin: auto"
             src="~/images/metamask.svg"/>
         <h3 class="text-bold">Wallet address:</h3>
-        <h4 style="text-align: center;word-wrap: break-word;">0xDjdjsljdalkjgadglkjdafşalkdgşalakşlgdkaşlgagda</h4>
+        <h4 style="text-align: center;word-wrap: break-word;">@Model.WalletAddress</h4>
     </div>
 </div>
+<script>
+    let element = document.getElementById("xbetToken");
+    value = @Model.TotalValue;
+    element.innerHTML = `You Get ${value} XBetToken`;
+</script>
