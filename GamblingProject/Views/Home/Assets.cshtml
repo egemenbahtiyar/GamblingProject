@@ -1,9 +1,9 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
 }
-
+@model GamblingProject.ViewModels.AssetViewModel
 <div class="header">
-    <h2 style="font-size: 200%">HOME</h2>
+    <h2 style="font-size: 200%">ASSETS</h2>
 </div>
 
 <div class="row">
@@ -28,19 +28,33 @@
         </ul>
     </div>
     <div class="columnB">
-        <div class="game-box">
-            <a class="text-decoration-none" href="/Home/Blackjack">
-                <h2>BlackJack</h2>
-            </a>
-
+        <div class="asset-box">
+            <h3>42 COIN</h3>
+            <h1 style="text-align: center">$@Model.My42Asset</h1>
         </div>
-        <div class="game-box">
-            <a class="text-decoration-none" href="/Home/Roulette">
-                <h2>Roulette</h2>
-            </a>
-
+        <div class="asset-box">
+            <h3>ETH</h3>
+            <h1 style="text-align: center">$@Model.MyEthAsset</h1>
         </div>
+        <footer class="footer">
+            <div style="margin: auto">
+                <h4>Cryptocoin</h4>
+                <h5>Bitcoin (BTC)</h5>
+                <h5>Ethereum (ETH)</h5>
+            </div>
+            <div style="margin: auto">
+                <h4>Updated</h4>
+                <h5>1 minute ago</h5>
+                <h5>1 minute ago</h5>
+            </div>
+            <div style="margin: auto">
+                <h4>Price</h4>
+                <h5 style="color: green">USD $@Model.BtcPrice</h5>
+                <h5 style="color: green">USD $@Model.EthPrice</h5>
+            </div>
+        </footer>
     </div>
+
     <div class="columnC">
         <h2>My Profile</h2>
         <img
@@ -50,11 +64,3 @@
         <h4 style="text-align: center;word-wrap: break-word;">0xDjdjsljdalkjgadglkjdafşalkdgşalakşlgdkaşlgagda</h4>
     </div>
 </div>
-
-<input type="hidden" name="WalletAddress" value="" id="walletAddress">
-<script>
-    var walletAddress = localStorage.getItem("userWalletAddress");
-    // Do something with the value
-    console.log(walletAddress+"aaaaaaaaaaaaa");
-    document.getElementById("walletAddress").innerHTML = walletAddress;
-</script>

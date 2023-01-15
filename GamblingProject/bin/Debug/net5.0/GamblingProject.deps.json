@@ -34,10 +34,13 @@
       "GamblingProject/1.0.0": {
         "dependencies": {
           "AspNetCore.Identity.MongoDbCore": "3.1.2",
+          "Microsoft.IdentityModel.JsonWebTokens": "6.25.1",
           "MongoDB.Bson": "2.18.0",
           "MongoDB.Driver": "2.18.0",
           "MongoDB.Entities": "21.0.1",
+          "Moralis": "2.0.3-beta",
           "Newtonsoft.Json": "13.0.2",
+          "System.IdentityModel.Tokens.Jwt": "6.25.1",
           "System.Net.Http": "4.3.4",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -293,14 +296,14 @@
           "System.Text.Encoding.Reference": "5.0.0.0",
           "System.Text.Encoding.Extensions": "5.0.0.0",
           "System.Text.Encodings.Web": "5.0.0.0",
-          "System.Text.Json": "5.0.0.0",
+          "System.Text.Json.Reference": "5.0.0.0",
           "System.Text.RegularExpressions": "5.0.0.0",
           "System.Threading.Channels": "5.0.0.0",
           "System.Threading.Reference": "5.0.0.0",
           "System.Threading.Overlapped": "5.0.0.0",
           "System.Threading.Tasks.Dataflow": "5.0.0.0",
           "System.Threading.Tasks.Reference": "5.0.0.0",
-          "System.Threading.Tasks.Extensions": "5.0.0.0",
+          "System.Threading.Tasks.Extensions.Reference": "5.0.0.0",
           "System.Threading.Tasks.Parallel": "5.0.0.0",
           "System.Threading.Thread": "5.0.0.0",
           "System.Threading.ThreadPool": "5.0.0.0",
@@ -424,6 +427,65 @@
         }
       },
       "Microsoft.Extensions.Primitives/3.1.12": {},
+      "Microsoft.IdentityModel.Abstractions/6.25.1": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.dll": {
+            "assemblyVersion": "6.25.1.0",
+            "fileVersion": "6.25.1.31130"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.JsonWebTokens/6.25.1": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "6.25.1",
+          "System.Text.Encoding": "4.3.0",
+          "System.Text.Json": "4.7.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
+            "assemblyVersion": "6.25.1.0",
+            "fileVersion": "6.25.1.31130"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Logging/6.25.1": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Abstractions": "6.25.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll": {
+            "assemblyVersion": "6.25.1.0",
+            "fileVersion": "6.25.1.31130"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Logging.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Tokens/6.25.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "Microsoft.IdentityModel.Logging": "6.25.1",
+          "System.Security.Cryptography.Cng": "4.5.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Text.Json": "4.7.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {
+            "assemblyVersion": "6.25.1.0",
+            "fileVersion": "6.25.1.31130"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/5.0.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
       "Microsoft.Win32.Registry/5.0.0": {
@@ -539,6 +601,21 @@
         },
         "compile": {
           "lib/netstandard2.0/MongoDbGenericRepository.dll": {}
+        }
+      },
+      "Moralis/2.0.3-beta": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.2",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Moralis.dll": {
+            "assemblyVersion": "2.0.3.0",
+            "fileVersion": "2.0.3.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Moralis.dll": {}
         }
       },
       "Newtonsoft.Json/13.0.2": {
@@ -684,6 +761,21 @@
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
           "System.Runtime.InteropServices": "4.3.0"
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/6.25.1": {
+        "dependencies": {
+          "Microsoft.IdentityModel.JsonWebTokens": "6.25.1",
+          "Microsoft.IdentityModel.Tokens": "6.25.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {
+            "assemblyVersion": "6.25.1.0",
+            "fileVersion": "6.25.1.31130"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
       "System.IO/4.3.0": {
@@ -847,21 +939,7 @@
           "runtime.native.System.Security.Cryptography.OpenSsl": "4.3.2"
         }
       },
-      "System.Security.Cryptography.Cng/4.3.0": {
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "5.0.0",
-          "System.IO": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.Handles": "4.3.0",
-          "System.Runtime.InteropServices": "4.3.0",
-          "System.Security.Cryptography.Algorithms": "4.3.0",
-          "System.Security.Cryptography.Encoding": "4.3.0",
-          "System.Security.Cryptography.Primitives": "4.3.0",
-          "System.Text.Encoding": "4.3.0"
-        }
-      },
+      "System.Security.Cryptography.Cng/4.5.0": {},
       "System.Security.Cryptography.Csp/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
@@ -940,7 +1018,7 @@
           "System.Runtime.InteropServices": "4.3.0",
           "System.Runtime.Numerics": "4.3.0",
           "System.Security.Cryptography.Algorithms": "4.3.0",
-          "System.Security.Cryptography.Cng": "4.3.0",
+          "System.Security.Cryptography.Cng": "4.5.0",
           "System.Security.Cryptography.Csp": "4.3.0",
           "System.Security.Cryptography.Encoding": "4.3.0",
           "System.Security.Cryptography.OpenSsl": "4.3.0",
@@ -960,6 +1038,7 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.Text.Json/4.7.2": {},
       "System.Threading/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0",
@@ -973,6 +1052,7 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.Threading.Tasks.Extensions/4.5.4": {},
       "ZstdSharp.Port/0.6.2": {
         "runtime": {
           "lib/net5.0/ZstdSharp.dll": {
@@ -2508,7 +2588,7 @@
         },
         "compileOnly": true
       },
-      "System.Text.Json/5.0.0.0": {
+      "System.Text.Json.Reference/5.0.0.0": {
         "compile": {
           "System.Text.Json.dll": {}
         },
@@ -2550,7 +2630,7 @@
         },
         "compileOnly": true
       },
-      "System.Threading.Tasks.Extensions/5.0.0.0": {
+      "System.Threading.Tasks.Extensions.Reference/5.0.0.0": {
         "compile": {
           "System.Threading.Tasks.Extensions.dll": {}
         },
@@ -2809,6 +2889,34 @@
       "path": "microsoft.extensions.primitives/3.1.12",
       "hashPath": "microsoft.extensions.primitives.3.1.12.nupkg.sha512"
     },
+    "Microsoft.IdentityModel.Abstractions/6.25.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B/WteJwwEuSu4MzTe30w0zfBUi5H9yWiAHACLT5WhLcuyY6WmU82TXY+g55E665/CMxhPCMsPit6Q5PiPBh60w==",
+      "path": "microsoft.identitymodel.abstractions/6.25.1",
+      "hashPath": "microsoft.identitymodel.abstractions.6.25.1.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.JsonWebTokens/6.25.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xjv7HnGR/b2eU97du1q7aoFWfZUn8mV4lk5XxhEw00DesfXYnehGSnqMCeyMojMbUXckbxVbdbAI0AuWk8FCFw==",
+      "path": "microsoft.identitymodel.jsonwebtokens/6.25.1",
+      "hashPath": "microsoft.identitymodel.jsonwebtokens.6.25.1.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Logging/6.25.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ymv/f8a65m7im+BXTK18XZzFB+x9IIP4l7rEeQ39VH8N5ZxAFTF6J6Nh0lX9Kzr7pWE+CmSd5+TBw0KTohn5CQ==",
+      "path": "microsoft.identitymodel.logging/6.25.1",
+      "hashPath": "microsoft.identitymodel.logging.6.25.1.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Tokens/6.25.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QY6V5wMCh+9dcaZnfM2wxlhAbtGLcEy8Mlo7WHQpwM9bNmfuu0P+h+J39zZ46O81yQlT1qZp759LQvlDsNe8dg==",
+      "path": "microsoft.identitymodel.tokens/6.25.1",
+      "hashPath": "microsoft.identitymodel.tokens.6.25.1.nupkg.sha512"
+    },
     "Microsoft.NETCore.Platforms/5.0.0": {
       "type": "package",
       "serviceable": true,
@@ -2871,6 +2979,13 @@
       "sha512": "sha512-+cogUUMvXjnc8JUvDwnWitNAKRU7BrOleILH2AeLQnZ/WZNvocRw2PLNBIBlXyBdf3Nt2UtByL12d2lPGwP+VQ==",
       "path": "mongodbgenericrepository/1.4.8",
       "hashPath": "mongodbgenericrepository.1.4.8.nupkg.sha512"
+    },
+    "Moralis/2.0.3-beta": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cZSvrdn5ctCpryQhD62eU93jUZtNcIOTUSj+cwGRAJ5ULt1qhawUcTivfzqp0P49QW13o5LJ2CVob4PpCvu6jg==",
+      "path": "moralis/2.0.3-beta",
+      "hashPath": "moralis.2.0.3-beta.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.2": {
       "type": "package",
@@ -3061,6 +3176,13 @@
       "path": "system.globalization.extensions/4.3.0",
       "hashPath": "system.globalization.extensions.4.3.0.nupkg.sha512"
     },
+    "System.IdentityModel.Tokens.Jwt/6.25.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0ypg2Vj2gSm7guuO152Y4kVCyLQ4aZyakAogmZlmB3M5QZTDUW0wjXzKafqAtFBzw+pGWH0bFAfH2FyNt7Uo6A==",
+      "path": "system.identitymodel.tokens.jwt/6.25.1",
+      "hashPath": "system.identitymodel.tokens.jwt.6.25.1.nupkg.sha512"
+    },
     "System.IO/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3180,12 +3302,12 @@
       "path": "system.security.cryptography.algorithms/4.3.0",
       "hashPath": "system.security.cryptography.algorithms.4.3.0.nupkg.sha512"
     },
-    "System.Security.Cryptography.Cng/4.3.0": {
+    "System.Security.Cryptography.Cng/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-03idZOqFlsKRL4W+LuCpJ6dBYDUWReug6lZjBa3uJWnk5sPCUXckocevTaUA8iT/MFSrY/2HXkOt753xQ/cf8g==",
-      "path": "system.security.cryptography.cng/4.3.0",
-      "hashPath": "system.security.cryptography.cng.4.3.0.nupkg.sha512"
+      "sha512": "sha512-WG3r7EyjUe9CMPFSs6bty5doUqT+q9pbI80hlNzo2SkPkZ4VTuZkGWjpp77JB8+uaL4DFPRdBsAY+DX3dBK92A==",
+      "path": "system.security.cryptography.cng/4.5.0",
+      "hashPath": "system.security.cryptography.cng.4.5.0.nupkg.sha512"
     },
     "System.Security.Cryptography.Csp/4.3.0": {
       "type": "package",
@@ -3236,6 +3358,13 @@
       "path": "system.text.encoding/4.3.0",
       "hashPath": "system.text.encoding.4.3.0.nupkg.sha512"
     },
+    "System.Text.Json/4.7.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg==",
+      "path": "system.text.json/4.7.2",
+      "hashPath": "system.text.json.4.7.2.nupkg.sha512"
+    },
     "System.Threading/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3249,6 +3378,13 @@
       "sha512": "sha512-LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
+    },
+    "System.Threading.Tasks.Extensions/4.5.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
+      "path": "system.threading.tasks.extensions/4.5.4",
+      "hashPath": "system.threading.tasks.extensions.4.5.4.nupkg.sha512"
     },
     "ZstdSharp.Port/0.6.2": {
       "type": "package",
@@ -4527,7 +4663,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Text.Json/5.0.0.0": {
+    "System.Text.Json.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -4562,7 +4698,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Threading.Tasks.Extensions/5.0.0.0": {
+    "System.Threading.Tasks.Extensions.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

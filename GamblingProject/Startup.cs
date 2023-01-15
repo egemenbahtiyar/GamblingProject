@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MongoDB.Driver;
+using Moralis;
+using Moralis.Models;
 
 namespace GamblingProject
 {
@@ -26,6 +28,7 @@ namespace GamblingProject
         {
             services.AddControllersWithViews();
             services.AddHttpContextAccessor();
+            services.AddSession();
             services.AddSingleton<UserService>();
             var mongoDbSettings = Configuration.GetSection(nameof(GamblingDatabaseSettings))
                 .Get<GamblingDatabaseSettings>();
@@ -64,7 +67,7 @@ namespace GamblingProject
                 options.Cookie.SameSite = SameSiteMode.Strict;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
-                options.LoginPath = "/Account/Login";
+                options.LoginPath = "/Home/Login";
                 options.LogoutPath = "/Account/Logout";
                 options.AccessDeniedPath = "/Account/AccessDenied";
                 options.SlidingExpiration = true;
@@ -93,12 +96,25 @@ namespace GamblingProject
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
+
+            // Setup Moralis
+            MoralisClient.ConnectionData = new ServerConnectionData
+            {
+                ApiKey = "csRlJAc6TviBo1NSVMotruuhaX6D4ZLkEnSz236rgA8GOKMeBVupTkcF5Tj1P35n"
+            };
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    "authRequest",
+                    "Authentication/RequestMessage/{address}/{network}/{chainId}",
+                    new {controller = "Authentication", action = "RequestMessage"}
+                );
+
+                endpoints.MapControllerRoute(
                     "default",
-                    "{controller=Home}/{action=Index}/{id?}");
+                    "{controller=Home}/{action=Login}/{id?}");
             });
         }
     }

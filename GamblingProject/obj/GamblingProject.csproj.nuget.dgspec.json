@@ -42,6 +42,10 @@
               "target": "Package",
               "version": "[3.1.2, )"
             },
+            "Microsoft.IdentityModel.JsonWebTokens": {
+              "target": "Package",
+              "version": "[6.25.1, )"
+            },
             "MongoDB.Bson": {
               "target": "Package",
               "version": "[2.18.0, )"
@@ -54,9 +58,17 @@
               "target": "Package",
               "version": "[21.0.1, )"
             },
+            "Moralis": {
+              "target": "Package",
+              "version": "[2.0.3-beta, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.2, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.25.1, )"
             },
             "System.Net.Http": {
               "target": "Package",

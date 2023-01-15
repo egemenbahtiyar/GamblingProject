@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using GamblingProject.Helpers.Extensions;
 using GamblingProject.Models;
 using GamblingProject.Services;
 using GamblingProject.ViewModels;
@@ -14,8 +13,8 @@ namespace GamblingProject.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly UserService _userService;
         private readonly UserManager<User> _userManager;
+        private readonly UserService _userService;
 
         public HomeController(ILogger<HomeController> logger, UserService userService, UserManager<User> userManager)
         {
@@ -24,14 +23,32 @@ namespace GamblingProject.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index(HomeIndexViewModel model)
         {
-            var user = new User()
+            return View();
+        }
+
+        public IActionResult Exchange()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Assets()
+        {
+            var ethPriceAsync = await GetCryptoValue.GetEthPriceAsync();
+            var btcPriceAsync = await GetCryptoValue.GetBtcPriceAsync();
+            var model = new AssetViewModel()
             {
-                Email = "hhhhhh51@gmail.com",
-                AssetTokens = 300,
-                UserName = "ege36",
+                My42Asset = "23",
+                MyEthAsset = "123",
+                EthPrice = ethPriceAsync.ToString(),
+                BtcPrice = btcPriceAsync.ToString()
             };
+            return View(model);
+        }
+
+        public IActionResult Login()
+        {
             return View();
         }
 
@@ -48,14 +65,13 @@ namespace GamblingProject.Controllers
 
         public async Task<IActionResult> Roulette()
         {
-            var user = await _userManager.GetUserAsync(HttpContext.User);
-            var model = new RouletteViewModel()
+            var model = new RouletteViewModel
             {
-                Cash = Math.Floor(user.AssetTokens)
+                Cash = 2000
             };
             return View(model);
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> UpdateRouletteAsset(RouletteViewModel model)
         {
@@ -64,16 +80,17 @@ namespace GamblingProject.Controllers
             _userService.Update(user.Id, user);
             return RedirectToAction("Index", "Home");
         }
+
         [Consumes("application/json")]
         [HttpPost]
-        public async Task<JsonResult> UpdateRouletteWithRefresh([FromBody]RouletteViewModel model)
+        public async Task<JsonResult> UpdateRouletteWithRefresh([FromBody] RouletteViewModel model)
         {
             var user = await _userManager.GetUserAsync(HttpContext.User);
             user.AssetTokens = model.LastAsset;
             _userService.Update(user.Id, user);
             return Json(user);
         }
-        
+
         [HttpPost]
         public async Task<IActionResult> UpdateBlackjackAsset(BlackjackViewmodel model)
         {
@@ -82,35 +99,15 @@ namespace GamblingProject.Controllers
             _userService.Update(user.Id, user);
             return RedirectToAction("Index", "Home");
         }
-        
+
         [Consumes("application/json")]
         [HttpPost]
-        public async Task<JsonResult> UpdateBlackjackWithRefresh([FromBody]BlackjackViewmodel model)
+        public async Task<JsonResult> UpdateBlackjackWithRefresh([FromBody] BlackjackViewmodel model)
         {
             var user = await _userManager.GetUserAsync(HttpContext.User);
             user.AssetTokens = model.LastAsset;
             _userService.Update(user.Id, user);
             return Json(user);
-        }
-
-        public async Task<IActionResult> Exchange()
-        {
-            var result = await _userService.ConvertEthToTokens("63aa8b7c88048b81af783d53", 100);
-            if (result.Status == "success")
-                TempData.Put("message", new AlertMessage
-                {
-                    Title = result.Title,
-                    Message = result.Message,
-                    AlertType = "success"
-                });
-            else
-                TempData.Put("message", new AlertMessage
-                {
-                    Title = result.Title,
-                    Message = result.Message,
-                    AlertType = "danger"
-                });
-            return View();
         }
 
         public IActionResult Privacy()
