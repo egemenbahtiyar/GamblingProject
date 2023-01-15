@@ -9,25 +9,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GamblingProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GamblingProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Controllers/HomeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/ViewModels/AssetViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/ViewModels/AssetViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/ViewModels/ExchangeViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/ViewModels/ExchangeViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/Views/Home/Assets.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Views/Home/Assets.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/Views/Home/Exchange.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Views/Home/Exchange.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/Views/Home/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/GamblingProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/ref/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/bin/Debug/net5.0/ref/GamblingProject.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/GamblingProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/ref/GamblingProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/obj/Debug/net5.0/ref/GamblingProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/wwwroot/js/blackjack.js" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/js/blackjack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/wwwroot/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GamblingProject/wwwroot/js/roulette.js" beforeDir="false" afterPath="$PROJECT_DIR$/GamblingProject/wwwroot/js/roulette.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

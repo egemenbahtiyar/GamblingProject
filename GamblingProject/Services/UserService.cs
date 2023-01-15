@@ -42,6 +42,11 @@ namespace GamblingProject.Services
         {
             _users.UpdateOne(user => user.Id == id, Builders<User>.Update.Set("EthAmount", ethAmount).Set("AssetTokens", tokenAmount));
         }
+        // add token to user tokenAmount
+        public void AddToken(Guid id, double tokenAmount)
+        {
+            _users.UpdateOne(user => user.Id == id, Builders<User>.Update.Inc("AssetTokens", tokenAmount));
+        }
         
         public bool CheckIfUserExists(string wallet)
         {

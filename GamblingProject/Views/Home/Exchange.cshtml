@@ -28,6 +28,12 @@
         </ul>
     </div>
     <div class="columnB">
+        <form asp-action="AddReferenceCode" method="post">
+            <div class="input-group m-3 w-75">
+                <input type="text" class="form-control" name="code" placeholder="REFERENCE CODE">
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Get Asset</button>
+            </div>
+        </form>
         <form asp-action="ConvertEthTo42xToken" method="post">
             <div class="exchange-box">
                 <div class="exchange-box-item">
@@ -39,7 +45,6 @@
                 </div>
             </div>
         </form>
-
     </div>
     <div class="columnC">
         <h2>My Profile</h2>

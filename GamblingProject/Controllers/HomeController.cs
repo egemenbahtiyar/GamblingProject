@@ -93,6 +93,31 @@ namespace GamblingProject.Controllers
             var result3 = await _signInManager.PasswordSignInAsync(existedUser, model.WalletAddress, true, false);
             return RedirectToAction("Index", "Home");
         }
+        [HttpPost]
+        public async Task<IActionResult> AddReferenceCode(string code)
+        {
+            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+            if(code == "KOZTOPRAK")
+            {
+                _userService.AddToken(currentUser.Id, 420);
+                TempData.Put("message", new AlertMessage
+                {
+                    Title = "İşlem başarılı.",
+                    Message =
+                        "Tebrikler Başarıyla referans kodu eklediniz.",
+                    AlertType = "success"
+                });
+                return RedirectToAction("Index", "Home");
+            }
+            TempData.Put("message", new AlertMessage
+            {
+                Title = "İşlem başarısız",
+                Message =
+                    "Böyle bir referans kodu bulunamadı.",
+                AlertType = "danger"
+            });
+            return RedirectToAction("Index", "Home");
+        }
 
         public async Task<IActionResult> Assets()
         {
