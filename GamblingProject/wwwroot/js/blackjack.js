@@ -15,9 +15,9 @@ var game = new Game(),
 /*************************** Classes *****************************/
 
 /*****************************************************************/
-
 function Player() {
     var money = 0;
+    console.log("eheheheh");
     if (localStorage.getItem("RouletteKey") == null) {
         money = parseInt(document.getElementById("hiddenCash").value);
     }else {
@@ -365,6 +365,22 @@ Player.prototype.updateBoard = function () {
     var someVarName = player.getCash().toString();
     localStorage.setItem("RouletteKey", someVarName);
     localStorage.setItem("someVarKey", someVarName);
+    let updateAssetViewModel = {
+        LastAsset: parseInt(localStorage.getItem("RouletteKey"))
+    };
+    var data = JSON.stringify(updateAssetViewModel);
+    $.ajax({
+        type: 'POST',
+        url: '/Home/UpdateAsset',
+        contentType: 'application/json', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+        data: data,
+        success: function (result) {
+            console.log(result);
+        },
+        error: function () {
+            console.log('Failed ');
+        }
+    })
     player.getBank();
 
     return false;
@@ -633,4 +649,8 @@ if (window.location.href == "https://localhost:5001/home/blackjack"){
         }
     })
     console.log("window loaded");
+}
+else{
+    localStorage.removeItem("RouletteKey");
+    localStorage.removeItem("someVarKey");
 }

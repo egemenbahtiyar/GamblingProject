@@ -179,6 +179,14 @@ namespace GamblingProject.Controllers
             _userService.Update(user.Id, user);
             return Json(user);
         }
+        [Consumes("application/json")]
+        [HttpPost]
+        public async Task<JsonResult> UpdateAsset([FromBody] UpdateAssetViewModel model)
+        {
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            _userService.UpdateAsset(user.Id, model.LastAsset);
+            return Json(user);
+        }
 
         [HttpPost]
         public async Task<IActionResult> UpdateBlackjackAsset(BlackjackViewmodel model)

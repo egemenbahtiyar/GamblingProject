@@ -29,6 +29,10 @@
     width: 60%;
     height: 800px;
 }
+.columnB h6 {
+    margin-top: 300px;
+    text-align: center;
+}
 
 .game-box {
     background-color: lightgrey;

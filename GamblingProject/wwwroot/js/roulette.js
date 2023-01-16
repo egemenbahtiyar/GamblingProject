@@ -7,7 +7,7 @@ if (localStorage.getItem("someVarKey") == null) {
     var someVarName = localStorage.getItem("someVarKey");
     money = parseInt(someVarName);
 }
-
+document.getElementById("LastAsset").value = money;
 // red green black
 var bets = [0, 0, 0];
 
@@ -159,11 +159,26 @@ function checkBet(result) {
     if (color == "black") {
         money += bets[2] * 2;
     }
-    document.getElementById("LastAsset").value = money;
+    
     var someVarName = money.toString();
     localStorage.setItem("someVarKey", someVarName);
     localStorage.setItem("RouletteKey", someVarName);
-
+    let updateAssetViewModel = {
+        LastAsset: parseInt(localStorage.getItem("someVarKey"))
+    };
+    var data = JSON.stringify(updateAssetViewModel);
+    $.ajax({
+        type: 'POST',
+        url: '/Home/UpdateAsset',
+        contentType: 'application/json', // when we use .serialize() this generates the data in query string format. this needs the default contentType (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') so it is optional, you can remove it
+        data: data,
+        success: function (result) {
+            console.log(result);
+        },
+        error: function () {
+            console.log('Failed ');
+        }
+    });
     $(".betText").slideDown(1000, function () {
         $(this).remove();
     });
@@ -199,4 +214,8 @@ if (window.location.href == "https://localhost:5001/home/roulette"){
         }
     })
     console.log("window loaded");
+}
+else{
+    localStorage.removeItem("RouletteKey");
+    localStorage.removeItem("someVarKey");
 }
