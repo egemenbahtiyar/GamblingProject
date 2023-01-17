@@ -17,13 +17,8 @@ var game = new Game(),
 /*****************************************************************/
 function Player() {
     var money = 0;
-    console.log("eheheheh");
-    if (localStorage.getItem("RouletteKey") == null) {
-        money = parseInt(document.getElementById("hiddenCash").value);
-    }else {
-        var someVarName = localStorage.getItem("RouletteKey");
-        money = parseInt(someVarName);
-    }
+    console.log("eheheheh1");
+    money = parseInt(document.getElementById("hiddenCash").value);
     var hand = [],
         wager = 0,
         cash = money,
